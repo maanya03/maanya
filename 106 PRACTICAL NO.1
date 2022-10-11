@@ -1,0 +1,52 @@
+Input=("
+StudentName StudentWeight
+Maanya      61
+Vaishu      45
+Kajal       56
+Seema       64
+")
+
+Data=read.table(textConnection(Input),header=TRUE)
+print(Data)
+range(Data$StudentWeight,na.rm=TRUE)
+max(Data$StudentWeight,na.rm=TRUE)
+min(Data$StudentWeight,na.rm=TRUE)
+var(Data$StudentWeight,na.rm=TRUE)
+sd(Data$StudentWeight,na.rm=TRUE)
+sd(Data$StudentWeight,na.rm=TRUE)/
+mean(Data$StudentWeight,na.rm=TRUE)*100
+max(Data$StudentWeight,na.rm=TRUE)- min(Data$StudentWeight,na.rm=TRUE)
+
+#CUSTOM OF FUNCTION
+summary.list=function(x)list(
+N.with.NA.removed=length(x[!is.na(x)]),
+Count.of.NA=length(x[is.na(x)]),
+Mean=mean(x,na.rm=TRUE),
+Median=median(x,na.rm=TRUE),
+Max.Min=range(x,na.rm=TRUE),
+Range=max(x,na.rm=TRUE)-min(x,na.rm=TRUE),
+Variance=var(x,na.rm=TRUE),
+Std.Dev=sd(x,na.rm=TRUE),
+Coeff.Variation.Prcnt=sd(x,na.rm=TRUE)/mean(x,na.rm=TRUE)*100,
+Std.Error=sd(x,na.rm=TRUE)/sqrt(length(x[!is.na(x)])),
+Quantile=quantile(x,na.rm=TRUE)
+)
+summary.list(Data$StudentWeight)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+")
